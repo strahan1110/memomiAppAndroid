@@ -1,0 +1,387 @@
+ALTER TABLE dbo.EVENTO DROP COLUMN Codigo
+INSERT INTO RUTAS_ARCHIVOS VALUES(1,'Fotos','C:\','Archivos\MEMOMI\Fotos');
+INSERT INTO RUTAS_ARCHIVOS VALUES(2,'Audios','C:\','Archivos\MEMOMI\Audios');
+INSERT INTO RUTAS_ARCHIVOS VALUES(3,'Videos','C:\','Archivos\MEMOMI\Videos');
+
+USE [DB_MEMOMI]
+GO
+
+/** Object:  Trigger [dbo].[trg_GenerarIdVideos]    Script Date: 12/11/2024 14:49:43 **/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TRIGGER [dbo].[trg_GenerarIdVideos]
+ON [dbo].[VIDEOS]
+AFTER INSERT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    DECLARE @UltimoId NVARCHAR(10);
+    DECLARE @NuevoId NVARCHAR(10);
+    DECLARE @Numero INT;
+
+    -- Obtener el último ID en la tabla en el formato N00001, N00002, etc.
+    SELECT TOP 1 @UltimoId = IdVideo
+    FROM dbo.VIDEOS
+    WHERE IdVideo LIKE 'V%' -- Filtra solo IDs que empiezan con 'N'
+    ORDER BY IdVideo DESC;
+
+    -- Extraer el número de la parte del ID actual (después de la letra "N")
+    SET @Numero = CASE
+                    WHEN @UltimoId IS NULL THEN 1
+                    ELSE CAST(SUBSTRING(@UltimoId, 2, LEN(@UltimoId) - 1) AS INT) + 1
+                  END;
+
+    -- Generar el nuevo ID en el formato "N00001", "N00002", etc.
+    SET @NuevoId = 'V' + RIGHT('0000' + CAST(@Numero AS NVARCHAR), 4);
+
+    -- Actualizar el ID del nuevo registro en la tabla usando la tabla "inserted"
+    UPDATE dbo.VIDEOS
+    SET IdVideo = @NuevoId
+    FROM dbo.VIDEOS v
+    INNER JOIN inserted i ON v.IdVideo = i.IdVideo;
+END;
+GO
+
+ALTER TABLE [dbo].[VIDEOS] ENABLE TRIGGER [trg_GenerarIdVideos]
+GO
+
+
+
+=========================
+
+
+
+USE [DB_MEMOMI]
+GO
+
+/** Object:  Trigger [dbo].[trg_GenerarIdFotos]    Script Date: 12/11/2024 14:50:41 **/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TRIGGER [dbo].[trg_GenerarIdFotos]
+ON [dbo].[FOTOS]
+AFTER INSERT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    DECLARE @UltimoId NVARCHAR(10);
+    DECLARE @NuevoId NVARCHAR(10);
+    DECLARE @Numero INT;
+
+    -- Obtener el último ID en la tabla en el formato N00001, N00002, etc.
+    SELECT TOP 1 @UltimoId = IdFotos
+    FROM dbo.FOTOS
+    WHERE IdFotos LIKE 'F%' -- Filtra solo IDs que empiezan con 'N'
+    ORDER BY IdFotos DESC;
+
+    -- Extraer el número de la parte del ID actual (después de la letra "N")
+    SET @Numero = CASE
+                    WHEN @UltimoId IS NULL THEN 1
+                    ELSE CAST(SUBSTRING(@UltimoId, 2, LEN(@UltimoId) - 1) AS INT) + 1
+                  END;
+
+    -- Generar el nuevo ID en el formato "N00001", "N00002", etc.
+    SET @NuevoId = 'F' + RIGHT('00000' + CAST(@Numero AS NVARCHAR), 5);
+
+    -- Actualizar el ID del nuevo registro en la tabla usando la tabla "inserted"
+    UPDATE dbo.FOTOS
+    SET IdFotos = @NuevoId
+    FROM dbo.FOTOS f
+    INNER JOIN inserted i ON f.IdFotos = i.IdFotos;
+END;
+GO
+
+ALTER TABLE [dbo].[FOTOS] ENABLE TRIGGER [trg_GenerarIdFotos]
+GO
+
+
+
+=======================================
+
+
+USE [DB_MEMOMI]
+GO
+
+/** Object:  Trigger [dbo].[trg_GenerarIdAudio]    Script Date: 12/11/2024 14:51:03 **/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TRIGGER [dbo].[trg_GenerarIdAudio]
+ON [dbo].[AUDIO]
+AFTER INSERT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    DECLARE @UltimoId NVARCHAR(10);
+    DECLARE @NuevoId NVARCHAR(10);
+    DECLARE @Numero INT;
+
+    -- Obtener el último ID en la tabla en el formato N00001, N00002, etc.
+    SELECT TOP 1 @UltimoId = IdAudio
+    FROM dbo.AUDIO
+    WHERE IdAudio LIKE 'A%' -- Filtra solo IDs que empiezan con 'N'
+    ORDER BY IdAudio DESC;
+
+    -- Extraer el número de la parte del ID actual (después de la letra "N")
+    SET @Numero = CASE
+                    WHEN @UltimoId IS NULL THEN 1
+                    ELSE CAST(SUBSTRING(@UltimoId, 2, LEN(@UltimoId) - 1) AS INT) + 1
+                  END;
+
+    -- Generar el nuevo ID en el formato "N00001", "N00002", etc.
+    SET @NuevoId = 'A' + RIGHT('0000' + CAST(@Numero AS NVARCHAR), 4);
+
+    -- Actualizar el ID del nuevo registro en la tabla usando la tabla "inserted"
+    UPDATE dbo.AUDIO
+    SET IdAudio = @NuevoId
+    FROM dbo.AUDIO a
+    INNER JOIN inserted i ON a.IdAudio = i.IdAudio;
+END;
+GO
+
+ALTER TABLE [dbo].[AUDIO] ENABLE TRIGGER [trg_GenerarIdAudio]
+GO
+
+
+
+
+=============================================
+
+
+
+USE [DB_MEMOMI]
+GO
+
+/** Object:  Trigger [dbo].[trg_GenerarIdComentario]    Script Date: 12/11/2024 14:51:21 **/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TRIGGER [dbo].[trg_GenerarIdComentario]
+ON [dbo].[COMENTARIOS]
+AFTER INSERT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    DECLARE @UltimoId NVARCHAR(10);
+    DECLARE @NuevoId NVARCHAR(10);
+    DECLARE @Numero INT;
+
+    -- Obtener el último ID en la tabla en el formato N00001, N00002, etc.
+    SELECT TOP 1 @UltimoId = IdComentario
+    FROM dbo.COMENTARIOS
+    WHERE IdComentario LIKE 'C%' -- Filtra solo IDs que empiezan con 'N'
+    ORDER BY IdComentario DESC;
+
+    -- Extraer el número de la parte del ID actual (después de la letra "N")
+    SET @Numero = CASE
+                    WHEN @UltimoId IS NULL THEN 1
+                    ELSE CAST(SUBSTRING(@UltimoId, 2, LEN(@UltimoId) - 1) AS INT) + 1
+                  END;
+
+    -- Generar el nuevo ID en el formato "N00001", "N00002", etc.
+    SET @NuevoId = 'C' + RIGHT('0000' + CAST(@Numero AS NVARCHAR), 4);
+
+    -- Actualizar el ID del nuevo registro en la tabla usando la tabla "inserted"
+    UPDATE dbo.COMENTARIOS
+    SET IdComentario = @NuevoId
+    FROM dbo.COMENTARIOS c
+    INNER JOIN inserted i ON c.IdComentario = i.IdComentario;
+END;
+GO
+
+ALTER TABLE [dbo].[COMENTARIOS] ENABLE TRIGGER [trg_GenerarIdComentario]
+GO
+
+
+
+==========================================================
+
+
+
+USE [DB_MEMOMI]
+GO
+
+/** Object:  Trigger [dbo].[trg_GenerarIdNovio]    Script Date: 12/11/2024 14:51:39 **/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TRIGGER [dbo].[trg_GenerarIdNovio]
+ON [dbo].[NOVIO]
+AFTER INSERT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    DECLARE @UltimoId NVARCHAR(10);
+    DECLARE @NuevoId NVARCHAR(10);
+    DECLARE @Numero INT;
+
+    -- Obtener el último ID en la tabla en el formato N00001, N00002, etc.
+    SELECT TOP 1 @UltimoId = IdNovio
+    FROM dbo.NOVIO
+    WHERE IdNovio LIKE 'N%' -- Filtra solo IDs que empiezan con 'N'
+    ORDER BY IdNovio DESC;
+
+    -- Extraer el número de la parte del ID actual (después de la letra "N")
+    SET @Numero = CASE
+                    WHEN @UltimoId IS NULL THEN 1
+                    ELSE CAST(SUBSTRING(@UltimoId, 2, LEN(@UltimoId) - 1) AS INT) + 1
+                  END;
+
+    -- Generar el nuevo ID en el formato "N00001", "N00002", etc.
+    SET @NuevoId = 'N' + RIGHT('00000' + CAST(@Numero AS NVARCHAR), 5);
+
+    -- Actualizar el ID del nuevo registro en la tabla usando la tabla "inserted"
+    UPDATE dbo.NOVIO
+    SET IdNovio = @NuevoId
+    FROM dbo.NOVIO n
+    INNER JOIN inserted i ON n.IdNovio = i.IdNovio;
+END;
+GO
+
+ALTER TABLE [dbo].[NOVIO] ENABLE TRIGGER [trg_GenerarIdNovio]
+GO
+
+
+
+
+==================================================================00
+
+
+CREATE TRIGGER [dbo].[trg_GenerarIdLista]
+ON [dbo].[LISTABLANCA]
+AFTER INSERT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    DECLARE @UltimoId NVARCHAR(10);
+    DECLARE @NuevoId NVARCHAR(10);
+    DECLARE @Numero INT;
+
+    -- Obtener el último ID en la tabla en el formato N00001, N00002, etc.
+    SELECT TOP 1 @UltimoId = IdLista
+    FROM LISTABLANCA
+    WHERE IdLista LIKE 'L%'
+    ORDER BY IdLista DESC;
+
+    -- Extraer el número de la parte del ID actual (después de la letra "L")
+    SET @Numero = CASE
+                    WHEN @UltimoId IS NULL THEN 1
+                    ELSE CAST(SUBSTRING(@UltimoId, 2, LEN(@UltimoId) - 1) AS INT) + 1
+                  END;
+
+    -- Generar el nuevo ID en el formato "L0001", "L0002", etc.
+    SET @NuevoId = 'L' + RIGHT('0000' + CAST(@Numero AS NVARCHAR), 4);
+
+    -- Actualizar solo el ID del nuevo registro en la tabla usando la tabla "inserted"
+    UPDATE LISTABLANCA
+    SET IdLista = @NuevoId
+    FROM LISTABLANCA e
+    INNER JOIN inserted i ON e.IdLista = i.IdLista;
+END;
+
+
+===================================================
+
+USE [DB_MEMOMI]
+GO
+/** Object:  Trigger [dbo].[trg_GenerarIdEvento]    Script Date: 18/11/2024 14:47:53 **/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TRIGGER [dbo].[trg_GenerarIdEvento]
+ON [dbo].[EVENTO]
+AFTER INSERT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    DECLARE @UltimoId NVARCHAR(10);
+    DECLARE @NuevoId NVARCHAR(10);
+    DECLARE @Numero INT;
+
+    -- Obtener el último ID en la tabla en el formato N00001, N00002, etc.
+    SELECT TOP 1 @UltimoId = IdEvento
+    FROM EVENTO
+    WHERE IdEvento LIKE 'EV%' -- Filtra solo IDs que empiezan con 'N'
+    ORDER BY IdEvento DESC;
+
+    -- Extraer el número de la parte del ID actual (después de la letra "N")
+    SET @Numero = CASE
+                    WHEN @UltimoId IS NULL THEN 1
+                    ELSE CAST(SUBSTRING(@UltimoId, 3, LEN(@UltimoId) - 2) AS INT) + 1
+                  END;
+
+    -- Generar el nuevo ID en el formato "N00001", "N00002", etc.
+    SET @NuevoId = 'EV' + RIGHT('0000' + CAST(@Numero AS NVARCHAR), 4);
+
+    -- Actualizar el ID del nuevo registro en la tabla usando la tabla "inserted"
+    UPDATE EVENTO
+    SET IdEvento = @NuevoId
+    FROM EVENTO e
+    INNER JOIN inserted i ON i.IdEvento = e.IdEvento;
+END;
+
+
+=========================================================
+CREATE TRIGGER trg_GenerarIdFactura
+ON Factura
+AFTER INSERT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    DECLARE @UltimoId NVARCHAR(10);
+    DECLARE @NuevoId NVARCHAR(10);
+    DECLARE @Numero INT;
+
+    -- Obtener el último ID en la tabla en el formato N00001, N00002, etc.
+    SELECT TOP 1 @UltimoId = IdFactura
+    FROM Factura
+    WHERE IdFactura LIKE 'F%' -- Filtra solo IDs que empiezan con 'N'
+    ORDER BY IdFactura DESC;
+
+    -- Extraer el número de la parte del ID actual (después de la letra "N")
+    SET @Numero = CASE
+                    WHEN @UltimoId IS NULL THEN 1
+                    ELSE CAST(SUBSTRING(@UltimoId, 2, LEN(@UltimoId) - 1) AS INT) + 1
+                  END;
+
+    -- Generar el nuevo ID en el formato "N00001", "N00002", etc.
+    SET @NuevoId = 'F' + RIGHT('0000' + CAST(@Numero AS NVARCHAR), 4);
+
+    -- Actualizar el ID del nuevo registro en la tabla usando la tabla "inserted"
+    UPDATE Factura
+    SET IdFactura = @NuevoId
+    FROM Factura e
+    INNER JOIN inserted i ON e.IdFactura = e.IdFactura;
+END;
+GO
+
+
+
+
+
+

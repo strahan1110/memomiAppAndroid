@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/celeste"
+    tools:context=".ui.registroInvitado.invitadoFragment">
+
+    <ImageView
+        android:id="@+id/brand_logo"
+        android:layout_width="193dp"
+        android:layout_height="66dp"
+        android:layout_marginTop="108dp"
+        android:contentDescription="Logo de la marca"
+        android:src="@drawable/logomemomi"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/stepsText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pasos para registrarse:"
+        android:fontFamily="@font/petrona"
+        android:textSize="18sp"
+        android:textColor="@android:color/white"
+        android:layout_marginTop="32dp"
+        app:layout_constraintTop_toBottomOf="@id/brand_logo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/step1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/petrona"
+        android:text="Paso 1: Escanea el código QR"
+        android:textSize="16sp"
+        android:textColor="@android:color/white"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/stepsText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/step2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Paso 2: Valida tu DNI"
+        android:fontFamily="@font/petrona"
+        android:textSize="16sp"
+        android:textColor="@android:color/white"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/step1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/step3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="¡Estas dentro!"
+        android:fontFamily="@font/petrona"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/step2" />
+
+    <Button
+        android:id="@+id/scanQRCodeButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/tofi"
+        android:fontFamily="@font/petrona"
+        android:text="Escanear Código QR"
+        android:textColor="@android:color/white"
+        app:layout_constraintTop_toBottomOf="@id/step3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginHorizontal="16dp"/>
+
+    <EditText
+        android:id="@+id/dniInput"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Ingrese su DNI"
+        android:fontFamily="@font/petrona"
+        android:inputType="number"
+        android:textColorHint="@android:color/white"
+        android:padding="8dp"
+        app:layout_constraintTop_toBottomOf="@id/scanQRCodeButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="16dp"/>
+
+    <Button
+        android:id="@+id/validateButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/tofi"
+        android:fontFamily="@font/petrona"
+        android:text="Validar DNI"
+        android:textColor="@android:color/white"
+        app:layout_constraintTop_toBottomOf="@id/dniInput"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginHorizontal="16dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

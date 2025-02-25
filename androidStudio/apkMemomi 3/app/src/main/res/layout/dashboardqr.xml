@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/celeste">
+
+    <!-- Agrupación del conjunto (logo, título y botones) -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/center_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- Logo de la marca -->
+
+        <!-- Título -->
+
+        <!-- Botones apilados -->
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_photos"
+            android:layout_width="250dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="72dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardBackgroundColor="@color/tofi"
+            app:cardCornerRadius="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/dashboard_title">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/petrona"
+                android:text="Fotos"
+                android:textColor="@android:color/white"
+                android:textSize="18sp" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_videos"
+            android:layout_width="250dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="24dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardBackgroundColor="@color/tofi"
+            app:cardCornerRadius="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/card_photos">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/petrona"
+                android:text="Videos"
+                android:textColor="@android:color/white"
+                android:textSize="18sp" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_comments"
+            android:layout_width="250dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="24dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardBackgroundColor="@color/tofi"
+            app:cardCornerRadius="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/card_videos">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/petrona"
+                android:text="Comentarios"
+                android:textColor="@android:color/white"
+                android:textSize="18sp" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_audios"
+            android:layout_width="250dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="24dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardBackgroundColor="@color/tofi"
+            app:cardCornerRadius="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/card_comments">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/petrona"
+                android:text="Audios"
+                android:textColor="@android:color/white"
+                android:textSize="18sp" />
+        </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/brand_logo"
+        android:layout_width="150dp"
+        android:layout_height="55dp"
+        android:contentDescription="Logo de la marca"
+        android:src="@drawable/logomemomi"
+        app:layout_constraintBottom_toTopOf="@+id/center_group"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.527" />
+
+    <TextView
+        android:id="@+id/dashboard_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/petrona"
+        android:text="Comparte los mejores recuerdos"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/center_group"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/brand_logo" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

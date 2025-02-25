@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_entrada">
+
+    <fragment
+        android:id="@+id/nav_bienvenida"
+        android:name="com.example.apkMemomi.ui.bienvenida.bienvenidaFragment"
+        android:label="Bienvenido"
+        tools:layout="@layout/bienvenida" />
+
+    <fragment
+        android:id="@+id/nav_micuenta"
+        android:name="com.example.apkMemomi.ui.micuenta.micuentaFragment"
+        android:label="Mi Cuenta"
+        tools:layout="@layout/micuenta" />
+
+    <fragment
+        android:id="@+id/nav_config"
+        android:name="com.example.apkMemomi.ui.configuracion.configuracionFragment"
+        android:label="Configuracion"
+        tools:layout="@layout/configuracion" />
+
+    <fragment
+        android:id="@+id/nav_creainvi"
+        android:name="com.example.apkMemomi.ui.listaInvi.listaInviFragment"
+        android:label="Creacion Inv"
+        tools:layout="@layout/creacioninvi" />
+
+    <fragment
+        android:id="@+id/nav_registroeven"
+        android:name="com.example.apkMemomi.ui.registroEven.registroeventFragment"
+        android:label="Registro Even"
+        tools:layout="@layout/registroeven" />
+
+
+    <fragment
+        android:id="@+id/nav_logout"
+        android:name="com.example.apkMemomi.ui.logout.logoutFragment"
+        android:label="Logout"
+        tools:layout="@layout/logout" />
+
+    <fragment
+        android:id="@+id/nav_registroInvitado"
+        android:name="com.example.apkMemomi.ui.registroInvitado.invitadoFragment"
+        android:label="Entrada de invitado"
+        tools:layout="@layout/invitacionqr">
+        <action
+            android:id="@+id/destinodashboard"
+            app:destination="@id/nav_dashboard"
+            />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_detalleevento"
+        android:name="com.example.apkMemomi.ui.detallevento.detalleEFragment"
+        android:label="Detalle Evento"
+        tools:layout="@layout/detallevento" />
+
+
+
+    <fragment
+        android:id="@+id/nav_dashboard"
+        android:name="com.example.apkMemomi.ui.dashboard.dashboardFragment"
+        android:label="dashboard "
+        tools:layout="@layout/dashboardqr">
+        <action
+            android:id="@+id/destino_dsh_foto"
+            app:destination="@id/nav_dsh_fotos"/>
+        <action
+            android:id="@+id/destino_dsh_video"
+            app:destination="@id/nav_dsh_videos"/>
+        <action
+            android:id="@+id/destino_dsh_audio"
+            app:destination="@id/nav_dsh_audios"/>
+        <action
+            android:id="@+id/destino_dsh_comentario"
+            app:destination="@id/nav_dsh_comentarios"/>
+
+    </fragment>
+
+
+
+    <fragment
+        android:id="@+id/nav_dsh_fotos"
+        android:name="com.example.apkMemomi.ui.dshMultimedia.foto_dsh_fragment"
+        android:label="DashBoard Fotos"
+        tools:layout="@layout/dsh_fotos" />
+
+    <fragment
+        android:id="@+id/nav_dsh_videos"
+        android:name="com.example.apkMemomi.ui.dshMultimedia.video_dsh_Fragment"
+        android:label="DashBoard Videos"
+        tools:layout="@layout/dsh_videos" />
+
+    <fragment
+        android:id="@+id/nav_dsh_audios"
+        android:name="com.example.apkMemomi.ui.dshMultimedia.audio_dsh_fragment"
+        android:label="DashBoard Audios"
+        tools:layout="@layout/dsh_audios" />
+
+    <fragment
+        android:id="@+id/nav_dsh_comentarios"
+        android:name="com.example.apkMemomi.ui.dshMultimedia.comentario_dsh_fragment"
+        android:label="DashBoard Comentarios"
+        tools:layout="@layout/dsh_comentarios" />
+
+
+
+
+
+
+
+    <fragment
+        android:id="@+id/nav_registronovios"
+        android:name="com.example.apkMemomi.ui.registronovios.registronoviosFragment"
+        android:label="Registro de Novios"
+        tools:layout="@layout/registronovios">
+        <action
+            android:id="@+id/iratras"
+            app:destination="@id/nav_login"
+            />
+        <action
+            android:id="@+id/devueltalogin"
+            app:destination="@id/nav_login"
+            />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_entrada"
+        android:name="com.example.apkMemomi.ui.bienvenida.entradasis"
+        android:label="Inicio de sistema"
+        tools:layout="@layout/entrada">
+        <action
+            android:id="@+id/iranovios"
+            app:destination="@id/nav_login"
+            />
+        <action
+            android:id="@+id/irainvitados"
+            app:destination="@id/nav_registroInvitado"
+            />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_login"
+        android:name="com.example.apkMemomi.ui.login.loginFragment"
+        android:label="Login"
+        tools:layout="@layout/login">
+    <action
+        android:id="@+id/destinobienvenida"
+        app:destination="@id/nav_bienvenida" />
+        <action
+            android:id="@+id/destinoregistronovios"
+            app:destination="@id/nav_registronovios" />
+        <action
+            android:id="@+id/destinoinvitado"
+            app:destination="@id/nav_registroInvitado" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_listaeven"
+        android:name="com.example.apkMemomi.ui.listaEven.listaEveniFragment"
+        android:label="Mis Eventos"
+        tools:layout="@layout/listaeven">
+    <action
+        android:id="@+id/detallevento"
+        app:destination="@id/nav_detalleevento" />
+   </fragment>
+
+
+</navigation>

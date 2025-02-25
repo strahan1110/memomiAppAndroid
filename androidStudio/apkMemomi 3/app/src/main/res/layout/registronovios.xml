@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/oscuro">
+
+    <ImageView
+        android:id="@+id/imageViewLogo"
+        android:layout_width="217dp"
+        android:layout_height="177dp"
+        android:layout_marginTop="56dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/completelogo" />
+
+    <!-- Card for form inputs -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/rounded_box"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardCornerRadius="24dp"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewLogo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <!-- LinearLayout for form elements -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:weightSum="1">
+
+            <!-- Back Button -->
+            <ImageButton
+                android:id="@+id/botonatras"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Botón de retroceso"
+                android:src="@drawable/botonatras"
+                android:clickable="true"
+                app:tint="@color/oscuro"
+                android:layout_gravity="start"
+                android:padding="8dp"
+                android:layout_marginBottom="8dp" />
+
+            <!-- Title -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/petrona"
+                android:gravity="center"
+                android:text="Registro de Novios"
+                android:textColor="#A55A2B"
+                android:textSize="20sp"
+                android:layout_marginTop="8dp"
+                android:layout_gravity="center" />
+
+            <!-- Name of Groom -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/containerNombre1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:helperTextTextColor="@color/rojo">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etNombre1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/blancoscuro"
+                    android:fontFamily="@font/petrona"
+                    android:hint="Nombre del Novio"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Name of Bride -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/containerNombre2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:helperTextTextColor="@color/rojo">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etNombre2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/blancoscuro"
+                    android:fontFamily="@font/petrona"
+                    android:hint="Nombre de la Novia"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Email -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/containerCorreo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:helperTextTextColor="@color/rojo">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etCorreo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/blancoscuro"
+                    android:fontFamily="@font/petrona"
+                    android:hint="Correo Electrónico"
+                    android:inputType="textEmailAddress" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Phone Number -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/containerTelefono"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:helperTextTextColor="@color/rojo">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etTelefono"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/blancoscuro"
+                    android:fontFamily="@font/petrona"
+                    android:hint="Teléfono"
+                    android:inputType="phone" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Password -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/containerPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:helperTextTextColor="@color/rojo">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/blancoscuro"
+                    android:fontFamily="@font/petrona"
+                    android:hint="Contraseña"
+                    android:inputType="textPassword" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Confirm Password -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/containerConfirmarPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:helperTextTextColor="@color/rojo">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etConfirmarPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/blancoscuro"
+                    android:fontFamily="@font/petrona"
+                    android:hint="Confirmar Contraseña"
+                    android:inputType="textPassword" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Register Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnRegister"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="#A55A2B"
+                android:fontFamily="@font/petrona"
+                android:text="REGISTRAR"
+                android:textColor="@android:color/white"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+

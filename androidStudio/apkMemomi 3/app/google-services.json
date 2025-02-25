@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "445692851028",
+    "project_id": "pruebasmemomi",
+    "storage_bucket": "pruebasmemomi.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:445692851028:android:2cc889c7cb68d3bb238ec1",
+        "android_client_info": {
+          "package_name": "com.example.apkMemomi"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXftwC9LgJLIzar993p22wopBtfS-Vmcs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

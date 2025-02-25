@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_bienvenida"
+            android:icon="@drawable/ic_inicio"
+            android:title="Inicio" />
+        <item
+            android:id="@+id/nav_micuenta"
+            android:icon="@drawable/cuenta"
+            android:title="Mi cuenta" />
+
+        <item
+            android:id="@+id/nav_config"
+            android:icon="@drawable/config"
+            android:title="Configuración" />
+
+        <item
+            android:id="@+id/nav_creainvi"
+            android:icon="@drawable/creacioninvi"
+            android:title="Crear lista de invitados" />
+
+        <item
+            android:id="@+id/nav_registroeven"
+            android:icon="@drawable/registerevent"
+            android:title="Registro de Eventos" />
+
+        <item
+            android:id="@+id/nav_listaeven"
+            android:icon="@drawable/ic_event"
+            android:title="Mis Eventos" />
+
+
+    </group>
+
+    <item
+        android:title="">
+
+        <menu>
+
+            <item
+                android:id="@+id/logout"
+                android:icon="@drawable/logout"
+                android:title="Logout"
+                android:padding="25dp"/>
+
+        </menu>
+
+    </item>
+</menu>

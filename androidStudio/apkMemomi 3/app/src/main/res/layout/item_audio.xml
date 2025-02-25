@@ -1,0 +1,47 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <TextView
+        android:id="@+id/tvAudioName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nombre del audio"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvAudioDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Descripción del audio"
+        android:textSize="14sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingTop="8dp">
+
+        <Button
+            android:id="@+id/btnPlayAudio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Reproducir"
+            android:backgroundTint="@color/tofi"/>
+
+        <Button
+            android:id="@+id/btnStopAudio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Detener"
+            android:layout_marginStart="16dp"
+            android:backgroundTint="@color/tofi"/>
+    </LinearLayout>
+
+
+</LinearLayout>

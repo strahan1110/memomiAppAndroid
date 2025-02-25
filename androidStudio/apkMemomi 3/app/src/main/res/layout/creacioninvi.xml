@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/celeste"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/logoImageView"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/completelogo"
+            android:contentDescription="Logo"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="16dp" />
+
+        <ImageView
+            android:id="@+id/qrCodeImageView"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:background="@drawable/qr_border"
+            android:layout_gravity="center"
+            android:contentDescription="Código QR"
+            app:layout_constraintTop_toBottomOf="@id/logoImageView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="24dp" />
+
+        <EditText
+            android:id="@+id/guestDniInput"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="DNI del invitado"
+            android:fontFamily="@font/petrona"
+            android:textColorHint="@color/blancoscuro"
+            android:inputType="text"
+            app:layout_constraintTop_toBottomOf="@id/qrCodeImageView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="16dp" />
+
+        <Button
+            android:id="@+id/addGuestButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Guardar DNI"
+            android:backgroundTint="@color/tofi"
+            android:fontFamily="@font/petrona"
+            android:textColor="@android:color/white"
+            app:layout_constraintTop_toBottomOf="@id/guestDniInput"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="8dp" />
+
+        <Button
+            android:id="@+id/generateQRCodeButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Generar QR"
+            android:backgroundTint="@color/tofi"
+            android:fontFamily="@font/petrona"
+            android:textColor="@android:color/white"
+            app:layout_constraintTop_toBottomOf="@id/addGuestButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="8dp" />
+
+        <Button
+            android:id="@+id/resetButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Reiniciar lista y QR"
+            android:backgroundTint="@color/tofi"
+            android:fontFamily="@font/petrona"
+            android:textColor="@android:color/white"
+            app:layout_constraintTop_toBottomOf="@id/generateQRCodeButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="16dp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/guestListRecycler"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fontFamily="@font/petrona"
+            app:layout_constraintTop_toBottomOf="@id/resetButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="8dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
